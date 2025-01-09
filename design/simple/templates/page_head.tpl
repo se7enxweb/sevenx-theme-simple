@@ -1,4 +1,5 @@
 {default enable_help=true() enable_link=true()}
+{def $module_result_node_id=cond( is_set($module_result.node_id), $module_result.node_id )}
 {let name=Path
      path=$module_result.path
      reverse_path=array()}
@@ -20,7 +21,7 @@
 {/set-block}
 {/let}
 
-{def $meta = metadata( $module_result.node_id ) }{if $meta}{if $meta.title}
+{def $meta = metadata( $module_result_node_id ) }{if $meta}{if $meta.title}
 
     <title>{$meta.title|wash}</title>
 
